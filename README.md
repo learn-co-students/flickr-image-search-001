@@ -1,9 +1,3 @@
----
-  languages: javascript
-  tags: jquery, ajax, json, api, function, loops
-  resources: 2
----
-
 # Flickr Image Search
 
 ## Description
