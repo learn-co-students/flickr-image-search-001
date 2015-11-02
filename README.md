@@ -10,7 +10,7 @@ Work in teams to write the jQuery/JavaScript necessary to gather the user's sear
 2. Clone your fork.
 3. `cd` into the locally cloned repo folder for this lab.
 4. Browse the **index.html** file and make a note of the id the elements have been tagged with.
-5. In **js/flickrSearch.js** write the code neccesary to capture the user's search term upon clicking the search button and send out an AJAX request to the Flicker API. Using the provided link and API key:
+5. In **js/flickrSearch.js** write the code necessary to capture the user's search term upon clicking the search button and send out an AJAX request to the Flicker API. Using the provided link and API key:
 `'https://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&api_key=2fd41b49fedfd589dc265350521ab539&tags='+{your_search_term_here}+'&jsoncallback=?'`
 Replace the `{your_search_term_here}` for the tag URI parameter with your variable holding the users search term. It is suggested that you use jQuery's `$.getJSON()` method described here: [http://api.jquery.com/jQuery.getJSON/](http://api.jquery.com/jQuery.getJSON/)
 6. You should receive back some JSON that looks like the following:
