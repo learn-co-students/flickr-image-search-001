@@ -1,6 +1,27 @@
 $(document).ready(function(){
-  
-  //write your solution here...
+  $('body').on('click', 'button', function(){
+    var term = $('#keyword').val().toLowerCase().split(' ').join('_');
+    displayImg(term);
+  });
+
+  function displayImg(phrase){
+    var url = "https://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&api_key=2fd41b49fedfd589dc265350521ab539&tags="+phrase+"&jsoncallback=?"
+    $.getJSON(url, function(response){
+        $area = $('#feed');
+        $area.empty();
+        var imgEl = translateFlickrImg(response);
+        $area.append(imgEl);
+        console.log(response, url, imgEl);
+    });
+  }
+
+  function translateFlickrImg(json){
+    var farm_id = json.photos.photo[0].farm;
+    var server_id = json.photos.photo[0].server;
+    var id = json.photos.photo[0].id;
+    var secret = json.photos.photo[0].secret;
+    return '<img src="https://farm'+farm_id+'.staticflickr.com/'+server_id+'/'+id+'_'+secret+'_c.jpg">';
+  }
     
 });
 
@@ -35,7 +56,7 @@ jsonFlickrApi({
                 "isfamily": 0
             },
 
-info about creating photo url from son data: http://www.flickr.com/services/api/misc.urls.html
+info about creating photo url from json data: http://www.flickr.com/services/api/misc.urls.html
 
 http://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
